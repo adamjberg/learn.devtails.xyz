@@ -21,7 +21,25 @@ function traverseDirectory(directory: string, outputDirectory: string) {
     const fileContentsBuffer = fs.readFileSync(
       `${directory}/${parsedFilename.base}`
     );
-    const htmlContent = marked(String(fileContentsBuffer));
+
+    const directoryWithoutPublic = outputDirectory.replace("public", "");
+    const breadcrumbs = directoryWithoutPublic.split("/");
+    const breadCrumbLinks = breadcrumbs.map((crumbName) => {
+      return `<a href="${directoryWithoutPublic}">${crumbName}</a>`;
+    });
+
+    const htmlContent = `
+    <html lang="en">
+    <head>
+      <title>${parsedFilename.name}</title>
+      <link rel="stylesheet" href="/static/css/styles.css"/>
+    </head>
+    <body>
+      <a href="/">home</a>${breadCrumbLinks.join("/")}
+      ${marked(String(fileContentsBuffer))}
+    </body>
+    </html>
+    `;
 
     const outputFilename = `${parsedFilename.name}.html`;
     fs.writeFileSync(`${outputDirectory}/${outputFilename}`, htmlContent);
