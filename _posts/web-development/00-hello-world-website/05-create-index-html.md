@@ -39,4 +39,4 @@ It will then confirm `File Name to Write: index.html` and you must press enter t
 
 Navigate to `https://helloworld.yourdomain.com` in your browser and confirm you can see the "Hello World" message.
 
-[Prev](/00-Hello-World-Website/04-install-nginx)
+[Prev](/web-development/00-Hello-World-Website/04-install-nginx)
