@@ -22,7 +22,7 @@ for (const filename of postFileNames) {
   const cleanedTitle = parsedFilename.name
     .replace(/\d{1,}-/g, "")
     .replace("-", " ");
-  const htmlLinkForPost = `<a href="${filename}">${cleanedTitle}</a>`;
+  const htmlLinkForPost = `<div><a href="${parsedFilename.name}">${cleanedTitle}</a></div>`;
   htmlLinksToPosts.push(htmlLinkForPost);
 }
 
