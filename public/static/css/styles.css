@@ -1,3 +1,7 @@
+html {
+  margin: 8px;
+}
+
 body {
   max-width: 854px;
   margin: 0 auto;
