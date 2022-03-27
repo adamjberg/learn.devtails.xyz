@@ -1,0 +1,17 @@
+{
+  "name": "learn.devtails.xyz",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild --platform=node --bundle src/main.ts --outfile=built/hyde.js && node ./built/hyde.js"
+  },
+  "devDependencies": {
+    "@types/marked": "^4.0.3",
+    "@types/node": "^17.0.23",
+    "esbuild": "^0.14.28"
+  },
+  "dependencies": {
+    "marked": "^4.0.12"
+  }
+}
