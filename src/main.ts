@@ -7,10 +7,14 @@ const outputDirectory = "public";
 
 let htmlLinksToPosts = [];
 
-const postFileNames = fs.readdirSync(inputDirectory);
-for (const filename of postFileNames) {
-  const parsedFilename = path.parse(filename);
-  const fileContentsBuffer = fs.readFileSync(`${inputDirectory}/${filename}`);
+const postDirents = fs.readdirSync(inputDirectory, { withFileTypes: true });
+for (const dirent of postDirents) {
+  if (dirent.isDirectory()) {
+    continue;
+  }
+
+  const parsedFilename = path.parse(dirent.name);
+  const fileContentsBuffer = fs.readFileSync(`${inputDirectory}/${parsedFilename.base}`);
   const htmlContent = marked(String(fileContentsBuffer));
 
   if (!fs.existsSync(outputDirectory)) {
