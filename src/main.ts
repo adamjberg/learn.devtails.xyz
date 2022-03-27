@@ -2,32 +2,39 @@ import fs from "fs";
 import path from "path";
 import { marked } from "marked";
 
-const inputDirectory = "_posts";
-const outputDirectory = "public";
-
 let htmlLinksToPosts = [];
 
-const postDirents = fs.readdirSync(inputDirectory, { withFileTypes: true });
-for (const dirent of postDirents) {
-  if (dirent.isDirectory()) {
-    continue;
-  }
+traverseDirectory("_posts", "public");
 
-  const parsedFilename = path.parse(dirent.name);
-  const fileContentsBuffer = fs.readFileSync(`${inputDirectory}/${parsedFilename.base}`);
-  const htmlContent = marked(String(fileContentsBuffer));
-
+function traverseDirectory(directory: string, outputDirectory: string) {
   if (!fs.existsSync(outputDirectory)) {
     fs.mkdirSync(outputDirectory);
   }
-  const outputFilename = `${parsedFilename.name}.html`;
-  fs.writeFileSync(`${outputDirectory}/${outputFilename}`, htmlContent);
 
-  const cleanedTitle = parsedFilename.name
-    .replace(/\d{1,}-/g, "")
-    .replace("-", " ");
-  const htmlLinkForPost = `<div><a href="${parsedFilename.name}">${cleanedTitle}</a></div>`;
-  htmlLinksToPosts.push(htmlLinkForPost);
+  const postDirents = fs.readdirSync(directory, { withFileTypes: true });
+  for (const dirent of postDirents) {
+    if (dirent.isDirectory()) {
+      const newOutputDirectory = `${outputDirectory}/${dirent.name}`;
+      traverseDirectory(`${directory}/${dirent.name}`, newOutputDirectory);
+      continue;
+    }
+
+    const parsedFilename = path.parse(dirent.name);
+    const fileContentsBuffer = fs.readFileSync(
+      `${directory}/${parsedFilename.base}`
+    );
+    const htmlContent = marked(String(fileContentsBuffer));
+
+    const outputFilename = `${parsedFilename.name}.html`;
+    fs.writeFileSync(`${outputDirectory}/${outputFilename}`, htmlContent);
+
+    const cleanedTitle = parsedFilename.name
+      .replace(/\d{1,}-/g, "")
+      .replace("-", " ");
+    const url = `${outputDirectory.replace("public", "")}/${parsedFilename.name}`
+    const htmlLinkForPost = `<div><a href="${url}">${cleanedTitle}</a></div>`;
+    htmlLinksToPosts.push(htmlLinkForPost);
+  }
 }
 
 const indexHtml = `
@@ -40,4 +47,4 @@ const indexHtml = `
 </body>
 </html>
 `;
-fs.writeFileSync(`${outputDirectory}/index.html`, indexHtml);
+fs.writeFileSync(`public/index.html`, indexHtml);
