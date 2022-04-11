@@ -49,6 +49,6 @@ Use this [link](https://m.do.co/c/4d01489e4069) to get $100 credit for 60 days.
 
 This will test whether the SSH key you configured in step 9 was set up correctly.
 
-[Prev](/web-development/00-Hello-World-Website/00-Intro)
+[Prev](/web-development/00-hello-world-website/00-Intro)
 
-[Next](/web-development/00-Hello-World-Website/02-how-to-register-domain-with-namecheap)
+[Next](/web-development/00-hello-world-website/02-how-to-register-domain-with-namecheap)

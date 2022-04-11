@@ -21,6 +21,6 @@
 ## 7. Review Order & Click Pay Now
 ![](/static/img/namecheap-6.png)
 
-[Prev](/web-development/00-Hello-World-Website/01-how-to-set-up-hosting-with-digitalocean)
+[Prev](/web-development/00-hello-world-website/01-how-to-set-up-hosting-with-digitalocean)
 
-[Next](/web-development/00-Hello-World-Website/03-how-to-configure-namecheap-dns-to-point-domain-to-digitalocean-server)
+[Next](/web-development/00-hello-world-website/03-how-to-configure-namecheap-dns-to-point-domain-to-digitalocean-server)

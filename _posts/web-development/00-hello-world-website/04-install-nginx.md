@@ -8,6 +8,6 @@ sudo apt-get install nginx
 
 Once successfully installed, nginx will automatically start serving files out of the `/var/www/html/` folder on your remote server.  You should be able to open a browser at this point and type in the IP Address of your server.  It should display the default nginx page.
 
-[Prev](/web-development/00-Hello-World-Website/03-how-to-configure-namecheap-dns-to-point-domain-to-digitalocean-server)
+[Prev](/web-development/00-hello-world-website/03-how-to-configure-namecheap-dns-to-point-domain-to-digitalocean-server)
 
-[Next](/web-development/00-Hello-World-Website/05-create-index-html)
+[Next](/web-development/00-hello-world-website/05-create-index-html)
