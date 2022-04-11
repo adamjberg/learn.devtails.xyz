@@ -6,7 +6,7 @@
   "scripts": {
     "build": "esbuild --platform=node --bundle src/main.ts --outfile=built/hyde.js && node ./built/hyde.js",
     "clean": "rm -rf built public/**/*.html",
-    "deploy": "ssh devtails@engram 'cd learn.devtails.xyz && git pull && yarn clean && yarn build'"
+    "deploy": "ssh devtails@engram 'cd learn.devtails.xyz && git pull && yarn && yarn clean && yarn build'"
   },
   "devDependencies": {
     "@types/marked": "^4.0.3",

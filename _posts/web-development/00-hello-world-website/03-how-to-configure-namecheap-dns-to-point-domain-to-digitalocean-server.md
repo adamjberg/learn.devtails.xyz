@@ -12,6 +12,6 @@
 ## 4. Add "A Record" with Host `helloworld` and Value to the IP Address of the server you created earlier
 ![](/static/img/namecheap-dns-3.png)
 
-[Prev](/web-development/00-Hello-World-Website/02-how-to-register-domain-with-namecheap)
+[Prev](/web-development/00-hello-world-website/02-how-to-register-domain-with-namecheap)
 
-[Next](/web-development/00-Hello-World-Website/04-install-nginx)
+[Next](/web-development/00-hello-world-website/04-install-nginx)
